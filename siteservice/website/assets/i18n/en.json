@@ -330,7 +330,7 @@
             "registrationsmsform": {
                 "smsconfirmation": "SMS confirmation",
                 "smshelp": "Click the link in the sms sent to your phone or enter the code from the sms here if you are unable to.",
-                "smscode": "Code sent by sms",
+                "smscode": "SMS Code",
                 "invalidcode": "Invalid code",
                 "resend": "Resend code",
                 "submit": "Submit"
@@ -372,7 +372,7 @@
     "show_full_history": "Show full history",
     "sms_code_length": "The code has a length of 6 characters",
     "sms_confirmed_by_link": "Your phone number has been confirmed",
-    "smscode": "Please enter the code sent to you by sms",
+    "smscode": "SMS Code",
     "start": "Start",
     "suborganization_to_move": "Suborganization to move",
     "toggle_full_description": "Toggle full description",

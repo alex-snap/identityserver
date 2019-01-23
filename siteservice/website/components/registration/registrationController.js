@@ -16,6 +16,7 @@
         vm.onTabSelected = onTabSelected;
         vm.goToNextTabIfValid = goToNextTabIfValid;
         vm.goToPreviousTab = goToPreviousTab;
+        vm.goToTheTab = goToTheTab;
         vm.codeUpdated = codeUpdated;
         vm.externalSite = queryParams.client_id;
         $rootScope.loginUrl = '/login' + $window.location.search;
@@ -207,6 +208,10 @@
                 && $scope.signupform.email.$valid
                 && $scope.signupform.password.$valid
                 && $scope.signupform.passwordvalidation.$valid;
+        }
+
+        function goToTheTab(tab) {
+            vm.selectedTab = tab;
         }
 
         function goToNextTabIfValid() {

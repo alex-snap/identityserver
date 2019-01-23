@@ -1,0 +1,35 @@
+{
+  "addresses": [],
+  "bankaccounts": [],
+  "emailaddresses": [
+    {
+      "emailaddress": "yehotox@voltaer.com",
+      "label": "main"
+    }
+  ],
+  "facebook": {
+    "id": "",
+    "picture": "",
+    "link": "",
+    "name": ""
+  },
+  "github": {
+    "login": "",
+    "id": 0,
+    "avatar_url": "",
+    "html_url": "",
+    "name": ""
+  },
+  "phonenumbers": [
+    {
+      "label": "main",
+      "phonenumber": "+79027153462"
+    }
+  ],
+  "digitalwallet": [],
+  "publicKeys": [],
+  "username": "alextest_ales_1",
+  "firstname": "Alextest",
+  "lastname": "Ales",
+  "avatars": []
+}

@@ -1,0 +1,88 @@
+
+<md-dialog>
+    <form name="dataform">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 class="white text_align_center"><span ng-if="::!originalLabel" translate='user.views.addressdialog.addaddress' translate-cloak>Add an address</span>
+                    <span ng-if="::originalLabel" translate="address">Address</span></h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="assets/img/ic_close_24px.svg" aria-label translate-attr="{ 'aria-label': 'closedialog' }"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content" layout="column">
+                <md-input-container>
+                    <label translate='label'>Label</label>
+                    <md-select ng-model="data.label" required name="labelinput">
+                        <md-option ng-repeat="label in preFilledLabels" ng-value="label">
+                            {{label | translate}}</md-option>
+                        <md-option ng-value="::originalLabel" ng-if="::isCustomlabel(originalLabel)">{{originalLabel}}</md-option>
+                    </md-select>
+                    <div ng-messages="dataform.labelinput.$error">
+                        <div ng-message="required" translate='required_field'>This field is required</div>
+                    </div>
+                </md-input-container>              
+                <div layout="column" layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label translate='user.views.addressdialog.street'>Street</label>
+                        <input ng-model="data.street" required type="text" maxlength="50" name="street">
+                        <div ng-messages="dataform.street.$error">
+                            <div ng-message="required" translate='required_field'>This field is required</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label translate='user.views.addressdialog.number'>Nr</label>
+                        <input ng-model="data.nr" required type="text" maxlength="10" name="nr">
+                        <div ng-messages="dataform.nr.$error">
+                            <div ng-message="required" translate='required_field'>This field is required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="column" layout-gt-sm="row">
+                    <md-input-container>
+                        <label translate='user.views.addressdialog.postalcode'>Postal code</label>
+                        <input ng-model="data.postalcode" required type="text" maxlength="20" name="postalcode">
+                        <div ng-messages="dataform.postalcode.$error">
+                            <div ng-message="required" translate='required_field'>This field is required</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label translate='user.views.addressdialog.city'>City</label>
+                        <input ng-model="data.city" required type="text" maxlength="30" name="city">
+                        <div ng-messages="dataform.city.$error">
+                            <div ng-message="required" translate='required_field'>This field is required</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label translate='user.views.addressdialog.country'>Country</label>
+                        <input ng-model="data.country" required type="text" maxlength="40" name="country">
+                        <div ng-messages="dataform.country.$error">
+                            <div ng-message="required" translate='required_field'>This field is required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-input-container>
+                    <label translate='user.views.addressdialog.remarks'>Remarks</label>
+                    <input ng-model="data.other" type="text" maxlength="30" name="other">
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <md-button class="md-warn" ng-click="remove(originalLabel)" ng-if="::originalLabel" translate='delete'>
+                Delete
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="cancel()" translate='cancel'>
+                Cancel
+            </md-button>
+            <md-button class="md-primary" ng-click="create(data)" ng-if="::!originalLabel" translate='add' type='submit'>
+                Add
+            </md-button>
+            <md-button class="md-primary" ng-click="update(originalLabel, data)" ng-if="::originalLabel" translate='save' type='submit'>
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

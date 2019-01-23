@@ -73,10 +73,13 @@ md-dialog md-dialog-actions {
 --------------------------------------------------------*/
 #header {
     width: 100%;
-    background: #939598;
-    height: 80px;
+    height: 100px;
     position: relative;
     z-index: 2;
+    border: solid 1px rgba(18, 63, 85, 0.1);
+    background-color: #ffffff;
+    display: flex;
+    box-sizing: border-box;
 }
 
 .cookie-warning-container{
@@ -110,10 +113,9 @@ md-dialog md-dialog-actions {
 #logo a {
     text-decoration: none;
     float: left;
-    background: url(../img/its-you-online.gif) no-repeat;
-    margin-top: -61px;
-    height: 120px;
-    width: 360px;
+    background: url(../img/logo.png) no-repeat;
+    width: 244px;
+    height: 48px;
     background-size: cover;
 }
 
@@ -126,7 +128,6 @@ md-dialog md-dialog-actions {
   width: 320px;
   background-size: cover;
 }
-
 
 /*= LOGO ANIMATION
 --------------------------------------------------------*/
@@ -167,7 +168,7 @@ ul.built { list-style: none; margin: 0 auto; width: 730px; }
 
 .wrapper {
     min-height: 100%;
-    margin: 0 auto -120px;
+    /*margin: 0 auto -120px;*/
 }
 
 .footer, .push {
@@ -177,7 +178,7 @@ ul.built { list-style: none; margin: 0 auto; width: 730px; }
 #slide1 .content { margin-top: 220px; background: rgba(72, 72, 72, 0.2); }
 
 .bg {
-    background: #eeeeee
+    background: #fff;
 }
 
 .form-card {
@@ -246,10 +247,6 @@ ul.built { list-style: none; margin: 0 auto; width: 730px; }
     text-shadow: 2px 2px #3C3C3C;
 }
 
-.homepage #slide7 {
-    background-color: #ededed;
-}
-
 .homepage .footer-button {
     background-color: rgb(77, 115, 138);
     color: rgba(255, 255, 255, 0.87);
@@ -269,40 +266,24 @@ ul.built { list-style: none; margin: 0 auto; width: 730px; }
     min-width: 400px;
 }
 
-.sign-wrap {
-    margin-top: 15px;
-}
-
-.sign-wrap a:hover {
-    opacity: 0.9;
-}
-
-.sign-wrap a {
-    color: #FFF;
-    text-decoration: none;
-}
-
-.sign-wrap a i {
-    margin: 0 6px 0 0;
-    font-size: 15px;
-}
-
 .header-sign-wrap a {
     text-decoration: none;
 }
 
-md-select.header-select.md-default-theme:not([disabled]):focus .header-select.md-select-value,
-md-select.header-select:not([disabled]):focus .md-select-value {
-    color: #fff !important;
-}
-
 .header-select {
-    color: #fff;
+    color: #123f55;
     text-decoration: none;
     align-content: center;
-    margin: 16px 20px 0 0;
     border-bottom-style: none;
     padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.header-select .md-select-value {
+    border: none !important;
+}
+.header-select:focus {
+    color: #123f55 !important;
 }
 
 .md-select-value .md-select-icon {
@@ -314,10 +295,6 @@ md-select.header-select:not([disabled]):focus .md-select-value {
   color: #FFF;
   text-decoration: none;
   margin: 20px 6px 0 0;
-}
-
-.homepage .sign-wrap a {
-    margin-left: 10px;
 }
 
 .header-menu-item+.header-menu-item:before {
@@ -335,8 +312,9 @@ md-select.header-select:not([disabled]):focus .md-select-value {
 }
 
 .menu-hamburger {
-  color: #FFF;
-  padding-top: 20px;
+    font-size: 1.6rem;
+    color: #004057;
+    padding-top: 20px;
 }
 
 .push-sub-menu-button {
@@ -348,13 +326,8 @@ md-select.header-select:not([disabled]):focus .md-select-value {
 }
 
 @media (max-width: 650px) {
-  #logo a {
-    width: 300px;
-    height: 100px;
-    margin-top: -44px;
-  }
   .menu-hamburger {
-    padding-top: 23px;
+    padding-top: 0;
   }
 }
 
@@ -760,4 +733,301 @@ p.verified {
 
 .pointer {
     cursor: pointer;
+}
+
+/* Buttons */
+.de-btn {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: #00b0a3;
+    padding: 15px 52px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    border: none;
+}
+.de-btn:hover {
+    background-color: #00d4c7;
+}
+.de-btn:focus {
+    outline: none;
+}
+
+.de-btn--danger {
+    background-color: #ef4223;
+}
+.de-btn--danger:hover {
+    background-color: #ff3f20;
+}
+.de-btn--warn {
+    background-color: #f8941d;
+}
+.de-btn--warn:hover {
+    background-color: #ffc124;
+}
+.de-btn:disabled {
+    background-color: #838589 !important;
+}
+
+/* Links */
+.de-link {
+    font-size: 20px;
+    color: #123f55;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+}
+.de-link:hover {
+    color: #1b6f78;
+}
+.de-link-light {
+    color: #00b0a3;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+}
+.de-link-light:hover {
+    color: #00bfb2;
+}
+
+/* Navigation */
+.nav-item {
+    margin-right: 40px;
+}
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+/* Helpers */
+.w-100 {
+    width: 100%;
+}
+.mx-2 {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.ml-2 {
+    margin-left: 30px;
+}
+.mr-2 {
+    margin-right: 30px;
+}
+
+/* About */
+.about-title {
+    background: rgba(0,0,0,.4);
+    font-size: 32px;
+    line-height: 1.38;
+    text-align: center;
+    color: #f5f5f5;
+    width: 400px;
+    padding: 20px;
+    margin: 50px auto;
+}
+.about-desc {
+    font-size: 32px;
+    line-height: 1.38;
+    text-align: center;
+    color: #123f55;
+    max-width: 1250px;
+    margin: 0 auto 250px auto;
+}
+
+/* Typography */
+.title-h1 {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 0.92;
+    color: #123f55;
+}
+.text-right {
+    text-align: right;
+}
+.text-basic {
+    font-size: 16px;
+    color: #123f55;
+}
+
+/* Page */
+.page-offset-top {
+    margin-top: 57px;
+}
+
+/* Registration steps */
+.reg-steps {
+    margin-top: 36px;
+    margin-bottom: 52px;
+}
+.reg-agreement {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.29;
+    color: #a9b4b9;
+}
+.reg-resend {
+    margin-left: 30px;
+}
+
+/* Steps component */
+.steps {
+    border-radius: 3px;
+    border: solid 1px rgba(18, 63, 85, .05);
+    background-color: rgba(18, 63, 85, .05);
+    display: flex;
+    height: 60px;
+    padding: 0 23px;
+}
+.step {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+.step:focus {
+    outline: none;
+}
+.step:first-child {
+    margin-left: 0;
+}
+.step--active {
+    font-weight: bold;
+}
+.step-num {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border-radius: 100%;
+    color: rgb(18, 63, 85);
+}
+.step-title {
+    margin-left: 12px;
+}
+
+/* Forms */
+.form {
+
+}
+.form .form-line {
+    margin-bottom: 36px;
+}
+.form .form-line:last-child {
+    margin-bottom: 0;
+}
+.form-line {
+
+}
+.form-line .form-label {
+    margin-right: 30px;
+    text-align: right;
+}
+.form-label {
+
+}
+.form-control {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 3px;
+    padding: 12px;
+    border: solid 1px rgba(97, 101, 193, 0.11);
+    background-color: rgba(255,255,255, .1);
+}
+.form-control:focus {
+    border-color: #ef4223;
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .form-line .form-label {
+        margin-right: 0;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .steps {
+        height: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        flex-wrap: wrap;
+    }
+    .steps .step {
+        margin-left: 30px;
+        width: 100%;
+    }
+    .reg-resend:not(.reg-resend--noresp) {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
+
+/* Material design select */
+md-select {
+    margin: 0;
+}
+.md-select-value {
+    width: 100%;
+    border-radius: 3px;
+    padding: 8.5px 12px !important;
+    border-width: 1px !important;
+    border-style: solid;
+    border-color: rgba(97, 101, 193, 0.11);
+    background-color: rgba(255,255,255, .1);
+}
+
+/* Override */
+.flex-100 {
+    width: 100%;
+}
+
+.error-messages {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ca1515;
+}
+
+
+/* Profile */
+.profile-title {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 0.92;
+    color: #123f55;
+}
+.tab-you md-toolbar {
+    height: 60px;
+    border-radius: 3px;
+    border: solid 1px rgba(97, 101, 193, 0.05);
+    background-color: rgba(97, 101, 193, 0.05);
+}
+.tab-you md-toolbar .md-toolbar-tools {
+    height: 60px;
+    line-height: 60px;
+}
+.profile-field-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #123f55;
+}
+.profile-add-btn {
+    font-size: 16px;
+    text-align: right;
+    color: #00b0a3;
+    cursor: pointer;
+}
+.profile-add-btn:focus {
+    outline: none;
+}
+.profile-field-desc {
+    font-size: 12px !important;
+    color: #a0b2bb !important;
 }

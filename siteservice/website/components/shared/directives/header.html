@@ -8,19 +8,19 @@
             </md-button>
         </div>
         <!--end cookie warning-->
-        <div div layout="row">
+        <div div layout="row" class="w-100">
             <div flex></div>
             <div flex="90" flex-gt-sm="80" layout="row" layout-align="space-between center">
                 <div class="logo-base">
                     <div id="logo"><a href="#/"></a></div>
                 </div>
                 <div layout="row" layout-align="center center" hide show-gt-sm>
-                    <md-select ng-model="langKey" ng-change="updateLanguage()" md-offset="-5 30" class="md-no-underline header-select"
+                    <md-select ng-model="langKey" ng-change="updateLanguage()" md-offset="-5 30" class="md-no-underline header-select nav-item"
                         placeholder='language' translate-attr="{'placeholder': 'shared.directives.header.language', 'aria-label': 'shared.directives.header.language'}"
                         aria-label="language" ng-cloak>
-                        <md-option value="en" class="md-no-underline">English</md-option>
-                        <md-option value="nl" class="md-no-underline">Nederlands</md-option>
-                        <md-option value="ru" class="md-no-underline">Русский</md-option>
+                        <md-option value="en" class="md-no-underline">Eng</md-option>
+                        <md-option value="nl" class="md-no-underline">Ned</md-option>
+                        <md-option value="ru" class="md-no-underline">Рус</md-option>
                     </md-select>
                     <div class="header-sign-wrap" ng-if="::$root.user">
                         <!--notification icon-->
@@ -75,11 +75,15 @@
                         </a>
                         <!--end header settings-->
                     </div>
-                    <div class="sign-wrap" ng-if="::!$root.user && header_registration">
-                        <a ng-href="{{ $root.registrationUrl || 'register' }}"><i class="fa fa-user-plus"></i><span translate='shared.directives.header.register'>Register</span></a>
+                    <div class="nav-item" ng-if="::!$root.user && header_registration">
+                        <a ng-href="{{ $root.registrationUrl || 'register' }}" class="de-link">
+                            <span translate='shared.directives.header.register'>Register</span>
+                        </a>
                     </div>
-                    <div class="sign-wrap" ng-if="::!$root.user && header_login">
-                        <a ng-href="{{ $root.loginUrl || 'login' }}"><i class="fa fa-sign-in"></i><span translate='shared.directives.header.signin'>Sign in</span></a>
+                    <div class="nav-item" ng-if="::!$root.user && header_login">
+                        <a ng-href="{{ $root.loginUrl || 'login' }}" class="de-btn">
+                            <span translate='shared.directives.header.signin'>Log in</span>
+                        </a>
                     </div>
                 </div>
                 <div class="menu-hamburger" layout-align="center center" hide-gt-sm>
@@ -96,13 +100,13 @@
             </md-menu-item>
             <div ng-show="langSelect">
                 <md-menu-item class="header-pushmenu-item">
-                    <md-button class="push-sub-menu-button" ng-click="setLanguage('en')">English</md-button>
+                    <md-button class="push-sub-menu-button" ng-click="setLanguage('en')">Eng</md-button>
                 </md-menu-item>
                 <md-menu-item class="header-pushmenu-item">
-                    <md-button class="push-sub-menu-button" ng-click="setLanguage('nl')">Nederlands</md-button>
+                    <md-button class="push-sub-menu-button" ng-click="setLanguage('nl')">Ned</md-button>
                 </md-menu-item>
                 <md-menu-item class="header-pushmenu-item">
-                    <md-button class="push-sub-menu-button" ng-click="setLanguage('ru')">Русский</md-button>
+                    <md-button class="push-sub-menu-button" ng-click="setLanguage('ru')">Рус</md-button>
                 </md-menu-item>
             </div>
             <div ng-show="!langSelect">
