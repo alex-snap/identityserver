@@ -177,7 +177,7 @@
 
     function runFunction($rootScope, $cookies, $window, UserService) {
         // Username in cookie is now base64 encoded
-        var base64username = $cookies.get('itsyou.online.user');
+        var base64username = $cookies.get('decs3o.auth.user');
         // Decode cookie
         $rootScope.user = base64ToUnicode($window, base64username);
         UserService.setUsername($rootScope.user);
