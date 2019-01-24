@@ -12,7 +12,8 @@
             getLogo: getLogo,
             getDescription: getDescription,
             resendValidation: resendValidation,
-            submitSMSCode: submitSMSCode
+            submitSMSCode: submitSMSCode,
+            check2FaMode: check2FaMode
         };
 
         function requestValidation(firstname, lastname, email, phone, password) {
@@ -67,6 +68,18 @@
                     return $q.reject(reason);
                 }
             );
+        }
+
+
+        /**
+         * @public
+         * @returns {Promise<{no2fa: boolean}>}
+         */
+        function check2FaMode() {
+            var url = '/register/check2famode';
+            return $http.get(url).then(function(response) {
+                return response.data;
+            });
         }
 
         function resendValidation(email, phone) {

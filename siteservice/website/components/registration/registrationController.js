@@ -46,6 +46,11 @@
 
         vm.basicInfoFailed = false;
 
+        vm.is2FaMode = null;
+        vm.is2FaModeChecking = false;
+
+        const SmsCodeStepIndex = 1;
+
         init();
 
         function init() {
@@ -75,6 +80,8 @@
                 });
                 loadDescription();
             }
+
+            check2FaMode();
         }
 
         // Load the correct description after the user changes language
@@ -281,7 +288,7 @@
                         }
                     }
                 )
-                if (vm.smsvalidation != vm.sms) {
+                if (vm.is2FaMode && vm.smsvalidation != vm.sms) {
                     vm.phoneConfirmed = false;
                     // Clear the input field
                     vm.smscode = "";
@@ -298,7 +305,9 @@
         }
 
         function startCodePolling() {
-            $timeout(checkPhoneConfirmation, 1000);
+            if (vm.is2FaMode) {
+                $timeout(checkPhoneConfirmation, 1000);
+            }
             $timeout(checkEmailConfirmation, 1000);
         }
 
@@ -331,6 +340,7 @@
                 function(response) {
                     if (response.data.confirmed) {
                         vm.phoneConfirmed = response.data.confirmed;
+                        $scope.signupform.smscode.$setValidity('required', true);
                         // trigger email validation
                         resendValidation();
                     } else {
@@ -360,6 +370,21 @@
 
         function resendValidation() {
             registrationService.resendValidation(vm.email, vm.sms);
+        }
+
+        function check2FaMode() {
+            vm.is2FaModeChecking = true;
+            registrationService.check2FaMode()
+            .then(function(response) {
+                vm.is2FaMode = !response.no2fa;
+                vm.is2FaModeChecking = false;
+                if (response.no2fa) {
+                    vm.phoneConfirmed = true;
+                }
+            }, function () {
+                vm.is2FaMode = true;
+                vm.is2FaModeChecking = false;
+            });
         }
 
     }

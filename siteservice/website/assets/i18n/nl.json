@@ -331,7 +331,7 @@
             "registrationsmsform": {
                 "smsconfirmation": "SMS bevestiging",
                 "smshelp": "Klik op de link in de sms die naar je telefoon gestuurd is of vul de code uit de sms hier in.",
-                "smscode": "SMS Code",
+                "smscode": "Code gestuurd via sms",
                 "invalidcode": "Ongeldige code",
                 "resend": "Herstuur code",
                 "submit": "Dien in"
@@ -373,7 +373,7 @@
     "show_full_history": "Toon volledige geschiedenis",
     "sms_code_length": "De code heeft een lengte van 6 karakters",
     "sms_confirmed_by_link": "Je telefoonnummer is bevestigd",
-    "smscode": "SMS Code",
+    "smscode": "Gelieve de code uit de sms in te vullen",
     "start": "Start",
     "suborganization_to_move": "Suborganizatie om te verhuizen",
     "toggle_full_description": "Toggle volledige beschrijving",

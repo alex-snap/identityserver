@@ -20,25 +20,51 @@
             </md-card-title-text>
         </md-card-title>
 
-        <div class="steps reg-steps">
+        <div ng-if="!vm.is2FaModeChecking" 
+            class="steps reg-steps">
             <div ng-class="{ 'step--active': vm.selectedTab === 0 }" class="step"
                  ng-click="vm.goToTheTab(0)">
                 <div class="step-num">1</div>
                 <div class="step-title text-basic">Basic Info</div>
             </div>
-            <div ng-class="{ 'step--active': vm.selectedTab === 1 }" class="step"
+            <div ng-if="vm.is2FaMode" 
+                ng-class="{ 'step--active': vm.selectedTab === 1 }" class="step"
                  ng-click="vm.goToTheTab(1)">
                 <div class="step-num">2</div>
                 <div class="step-title text-basic">Phone Validation</div>
             </div>
-            <div ng-class="{ 'step--active': vm.selectedTab === 2 }" class="step"
+
+            <div ng-if="vm.is2FaMode" 
+                ng-class="{ 'step--active': vm.selectedTab === 2 }" class="step"
                  ng-click="vm.goToTheTab(2)">
-                <div class="step-num">3</div>
+                <div class="step-num">
+                    3
+                </div>
                 <div class="step-title text-basic">Email Validation</div>
             </div>
-            <div ng-class="{ 'step--active': vm.selectedTab === 3 }" class="step"
+            <div ng-if="!vm.is2FaMode" 
+                ng-class="{ 'step--active': vm.selectedTab === 1 }" class="step"
+                 ng-click="vm.goToTheTab(1)">
+                <div class="step-num">
+                    2
+                </div>
+                <div class="step-title text-basic">Email Validation</div>
+            </div>
+
+            <div ng-if="vm.is2FaMode" 
+                ng-class="{ 'step--active': vm.selectedTab === 3 }" class="step"
                  ng-click="vm.goToTheTab(3)">
-                <div class="step-num">4</div>
+                 <div class="step-num">
+                    4
+                </div>
+                <div class="step-title text-basic">Profile</div>
+            </div>
+            <div ng-if="!vm.is2FaMode" 
+                ng-class="{ 'step--active': vm.selectedTab === 2 }" class="step"
+                 ng-click="vm.goToTheTab(2)">
+                 <div class="step-num">
+                    3
+                </div>
                 <div class="step-title text-basic">Profile</div>
             </div>
         </div>
@@ -212,7 +238,9 @@
                         </div>
                     </md-tab-body>
                 </md-tab>
-                <md-tab ng-disabled="!vm.basicInfoValid()" md-on-select="vm.onTabSelected(1)">
+                <md-tab ng-if="!vm.is2FaModeChecking && vm.is2FaMode" 
+                        ng-disabled="!vm.basicInfoValid()" 
+                        md-on-select="vm.onTabSelected(1)">
                     <md-tab-label>
                         <h3 translate='validation'>Validation</h3>
                     </md-tab-label>
@@ -268,7 +296,6 @@
                 </md-tab>
                 <md-tab ng-disabled="!vm.basicInfoValid() || !vm.phoneConfirmed" md-on-select="vm.onTabSelected(2)">
                     <md-tab-body>
-
                         <div layout="column" layout-align="center center" ng-if="vm.emailConfirmed" style="margin-top: 50px; margin-bottom: 50px;"flex>
                             <div layout="row" layout-align="center center">
                                 <div flex></div>
