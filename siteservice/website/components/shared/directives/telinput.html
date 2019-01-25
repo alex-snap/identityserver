@@ -6,12 +6,14 @@
          class="form-line">
         <label flex="100"
                flex-gt-xs="20"
-               for="countryselect"
-               translate="country"
+               for="sms"
+               translate="phone_number"
                class="text-basic form-label">Country</label>
-        <div flex="100"
-             flex-gt-xs="30">
-            <md-select ng-model="country" id="countryselect" ng-change="updateSMS()" required>
+        <div flex-gt-xs="30" layout="row">
+            <md-select ng-model="country" 
+                        md-selected-text="country.dial_code"
+                        ng-model-options="{trackBy: '$value.code'}"
+                        id="countryselect" ng-change="updateSMS()" required>
                 <md-option ng-repeat="country in countries" ng-value="country" class="countryoption">
                     <div layout="row" layout-align="space-between center">
                         <span ng-bind="country.name"></span>
@@ -19,20 +21,7 @@
                     </div>
                 </md-option>
             </md-select>
-        </div>
-    </div>
-
-    <div layout="column"
-         layout-gt-xs="row"
-         layout-align="start start"
-         layout-align-gt-xs="center center"
-         class="form-line">
-        <label flex="100"
-               flex-gt-xs="20"
-               for="sms" translate="phone_number"
-               class="text-basic form-label">Phone number</label>
-        <div flex="100"
-             flex-gt-xs="30">
+            <div flex="100" class="ml-2">
             <input type="tel"
                    ng-model="sms"
                    name="phonenumber"
@@ -53,6 +42,6 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
-
 </div>

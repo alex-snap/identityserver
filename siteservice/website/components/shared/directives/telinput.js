@@ -13,7 +13,12 @@
                 templateUrl: 'components/shared/directives/telinput.html',
                 link: function (scope, element, attr) {
                     scope.countries = countries;
-                    scope.country = {};
+                    scope.country = {
+                        "name": "Russia",
+                        "dial_code": "+7",
+                        "code": "RU"
+                    };
+                    
                     scope.sms = "";
                     scope.prefCountry = "";
 

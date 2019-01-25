@@ -20,12 +20,15 @@
         vm.password = "";
         vm.description = "";
         vm.loading = false;
+        vm.is2FaModeChecking = false;
+        vm.is2FaMode = null;
 
         var listener;
         activate();
 
         function activate() {
             requestRegister();
+            check2FaMode();
             if (vm.externalSite) {
                 LoginService.getLogo(vm.externalSite).then(function (data) {
                     vm.logo = data.logo;
@@ -91,8 +94,12 @@
                         // Skip 2FA when logging in from an external site if the 2FA validity period hasn't passed
                         $window.location.href = data.data.redirecturl;
                     } else {
-                        // Redirect 2 factor authentication page
-                        $window.location.hash = '#/2fa';
+                        if (vm.is2FaMode) {
+                            // Redirect 2 factor authentication page
+                            $window.location.hash = '#/2fa';
+                        } else {
+                            $window.location.hash = '#/profile';
+                        }
                     }
                 },
                 function (response) {
@@ -166,6 +173,18 @@
                 url = url.slice(0, -1);
                 $window.location.href = url;
             }
+        }
+
+        function check2FaMode() {
+            vm.is2FaModeChecking = true;
+            LoginService.check2FaMode()
+            .then(function(response) {
+                vm.is2FaMode = !response.no2fa;
+                vm.is2FaModeChecking = false;
+            }, function () {
+                vm.is2FaMode = true;
+                vm.is2FaModeChecking = false;
+            });
         }
     }
 })();

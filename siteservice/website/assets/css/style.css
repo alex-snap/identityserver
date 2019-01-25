@@ -546,6 +546,9 @@ li > ul.organizationstree {
 .login-header {
     color: #4d738a;
 }
+.login-card {
+    margin-top: 52px;
+}
 
 .badge {
     color: #ffffff;
@@ -806,6 +809,9 @@ p.verified {
 }
 
 /* Helpers */
+.text-center {
+    text-align: center;
+}
 .w-100 {
     width: 100%;
 }
@@ -813,11 +819,23 @@ p.verified {
     margin-right: 30px;
     margin-left: 30px;
 }
+.ml-1 {
+    margin-left: 15px;
+}
+.mr-1 {
+    margin-right: 15px;
+}
 .ml-2 {
     margin-left: 30px;
 }
 .mr-2 {
     margin-right: 30px;
+}
+.mt-3 {
+    margin-top: 45px;
+}
+.mt-2 {
+    margin-top: 30px;
 }
 
 /* About */
@@ -827,7 +845,7 @@ p.verified {
     line-height: 1.38;
     text-align: center;
     color: #f5f5f5;
-    width: 400px;
+    max-width: 490px;
     padding: 20px;
     margin: 50px auto;
 }
@@ -973,11 +991,13 @@ p.verified {
 /* Material design select */
 md-select {
     margin: 0;
+    display: block;
 }
 .md-select-value {
+    box-sizing: border-box;
     width: 100%;
     border-radius: 3px;
-    padding: 8.5px 12px !important;
+    padding: 12.5px 12px !important;
     border-width: 1px !important;
     border-style: solid;
     border-color: rgba(97, 101, 193, 0.11);
@@ -1030,4 +1050,8 @@ md-select {
 .profile-field-desc {
     font-size: 12px !important;
     color: #a0b2bb !important;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: rgb(17, 72, 95) !important;
 }

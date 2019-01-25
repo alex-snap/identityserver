@@ -1,4 +1,75 @@
-<form layout="row" layout-align="center center" name="loginform" ng-submit="vm.submit()">
+<form layout="row" layout-align="center center" name="loginform" ng-submit="vm.submit()" novalidate>
+        <div layout="column" flex="90" flex-gt-sm="80" class="page-offset-top">
+            <a href="/" class="de-link-light"><i class="fa fa-arrow-left mr-1"></i>Назад</a>
+            <div class="title-h1 text-center" translate='login.views.loginform.login'>Login</div>
+            <md-card-content class="login-card">
+                    <div layout="column" class="form">
+                        <div layout="column"
+                            layout-gt-xs="row"
+                            layout-align="start start"
+                            layout-align-gt-xs="center center"
+                            class="form-line">
+                           <label flex="100"
+                                  flex-gt-xs="20"
+                                  for="username"
+                                  translate="login.views.loginform.loginplaceholder"
+                                  class="text-basic form-label">Username</label>
+                           <div flex="100"
+                                flex-gt-xs="30">
+                                <input ng-model="vm.login" 
+                                        type="text"
+                                        ng-minlength="2" required name="username" id="username"
+                                        class="form-control"/>
+                                <div ng-messages="loginform.username.$error" ng-if="loginform.username.$touched" class="error-messages">
+                                    <div ng-message="required" translate="login.views.loginform.login_required">Введите логин</div>
+                                </div>
+                           </div>
+                       </div>
+                       <div layout="column"
+                            layout-gt-xs="row"
+                            layout-align="start start"
+                            layout-align-gt-xs="center center"
+                            class="form-line">
+                           <label flex="100"
+                                  flex-gt-xs="20"
+                                  for="password"
+                                  translate="login.views.loginform.password"
+                                  class="text-basic form-label">Password</label>
+                           <div flex="100"
+                                flex-gt-xs="30">
+                                <input ng-model="vm.password" required name="password" type="password"
+                                   ng-change="vm.clearValidation()" id="password"
+                                   class="form-control">
+                                <div ng-messages="loginform.password.$error" ng-if="loginform.password.$touched" class="error-messages">
+                                    <div ng-message="invalidcredentials" translate='login.views.loginform.invalidcredentials'>Invalid credentials</div>
+                                    <div ng-message="required" translate='login.views.loginform.password_required'>Введите пароль</div>
+                                </div>
+                           </div>
+                       </div>
+                    </div>
+                    <div class="loading-container" layout="row" layout-align="center center" ng-show="vm.loading">
+                            <md-progress-circular md-mode="indeterminate" md-diameter="50"></md-progress-circular>
+                    </div>
+                    <div class="text-align-center mt-3">
+                        <button type="submit"
+                            ng-disabled="vm.loading"
+                            class="de-btn de-btn--warn" 
+                            translate="login.views.loginform.loginbtn">
+                            Log in
+                        </button>
+                        <div class="mt-2">
+                            <a href="#/forgotpassword" class="de-link-light" translate='login.views.loginform.forgotpassword'>Forgot your password?</a>
+                            <br>
+                            <a href="#/validateemail" class="de-link-light" translate='validate_email'>Validate email</a>
+                        </div>
+                    </div>
+                </md-card-content>
+        </div>
+</form>
+
+
+
+<!-- <form layout="row" layout-align="center center" name="loginform" ng-submit="vm.submit()">
     <md-card class="form-card" flex="100" flex-gt-xs="80" flex-gt-sm="50" flex-gt-md="40" flex-gt-lg="30">
         <md-card-avatar ng-if="vm.externalSite" layout="row" layout-align="center center">
             <div ng-show="vm.logo" class="organization-logo-container" layout="row" layout-align="center center">
@@ -45,9 +116,12 @@
         <md-card-actions layout="column" layout-gt-sm="row" layout-align="space-between end"
                          layout-align-gt-sm="space-between start" ng-class="{'row-reverse': vm.reverseButtons}">
             <div layout="row" layout-align="end end" layout-align-gt-md="end end">
-                <md-button type="submit" class="md-raised md-primary" ng-disabled="vm.loading"
-                    translate='login.views.loginform.loginbtn'>Log in
-                </md-button>
+                <button type="submit"
+                    ng-disabled="vm.loading"
+                    class="de-btn de-btn--warn" 
+                    translate="login.views.loginform.loginbtn">
+                    Log in
+                </button>
             </div>
             <div layout="column" layout-align="center end" layout-align-gt-md="start start">
                 <md-button href="#/forgotpassword" translate='login.views.loginform.forgotpassword'>Forgot your password?</md-button>
@@ -55,4 +129,4 @@
             </div>
         </md-card-actions>
     </md-card>
-</form>
+</form> -->

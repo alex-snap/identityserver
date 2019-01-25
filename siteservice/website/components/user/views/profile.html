@@ -66,7 +66,7 @@
                                   aria-label="Email address">
                         <div class="md-list-item-text">
                             <h4 ng-bind=email.emailaddress class="text-basic"></h4>
-                            <p ng-bind="email.label" class="profile-field-desc"></p>
+                            <p class="profile-field-desc">{{ email.label | translate }}</p>
                         </div>
                     </md-list-item>
                     <p ng-if="email.verified" class="md-body-1 verified">
@@ -108,132 +108,6 @@
                         <span translate="verify">Verify</span>
                     </md-button>
                 </div>
-            </md-list>
-            <md-toolbar>
-                <div class="md-toolbar-tools" layout-align="space-between center">
-                    <span translate="facebook_account" class="profile-field-title">Facebook account</span>
-                    <div ng-if="! vm.user.facebook.id" ng-click="vm.addFacebookAccount()"
-                         class="profile-add-btn">
-                        + <span translate='add'>Add</span>
-                    </div>
-                </div>
-            </md-toolbar>
-            <md-list>
-                <md-list-item class="md-1-line" ng-click="vm.showFacebookDialog($event)"
-                              ng-if="vm.user.facebook.id" aria-label="{{ vm.user.facebook.name }}">
-                    <img ng-src="{{vm.user.facebook.picture}}" class="md-avatar"
-                         alt="{{vm.user.facebook.name}}" ng-if="vm.user.facebook.id"/>
-                    <div class="md-list-item-text">
-                        <h3 class="text_align_center" ng-bind="vm.user.facebook.name" class="text-basic"></h3>
-                    </div>
-                </md-list-item>
-                <p ng-if="!vm.user.facebook.id" translate='user.views.profile.nofacebook'>You haven't added your Facebook account yet.</p>
-            </md-list>
-            <md-toolbar>
-                <div class="md-toolbar-tools" layout-align="space-between center">
-                    <span translate="github_account" class="profile-field-title">GitHub account</span>
-                    <div ng-if="!vm.user.github.id" ng-click="vm.addGithubAccount()"
-                         class="profile-add-btn">
-                        + <span translate='add'>Add</span>
-                    </div>
-                </div>
-            </md-toolbar>
-            <md-list>
-                <md-list-item class="md-2-line" ng-if="vm.user.github.id"
-                              ng-click="vm.showGithubDialog($event)"
-                              aria-label="Github account {{ vm.user.github.login }}">
-                    <img ng-src="{{vm.user.github.avatar_url}}" class="md-avatar"
-                         alt="{{vm.user.github.login}}"/>
-                    <div class="md-list-item-text">
-                        <h4 ng-bind="vm.user.github.name" class="text-basic"></h4>
-                        <p ng-bind="vm.user.github.login" class="profile-field-desc"></p>
-                    </div>
-                </md-list-item>
-                <p ng-if="!vm.user.github.login" translate='user.views.profile.nogithub'>You haven't added your GitHub account yet.</p>
-            </md-list>
-            <md-toolbar>
-                <div class="md-toolbar-tools" layout-align="space-between center">
-                    <span translate='user.views.profile.addresses' class="profile-field-title">Addresses</span>
-                    <div ng-click="vm.showAddressDetailDialog($event)"
-                         class="profile-add-btn">
-                        + <span translate='add'>Add</span>
-                    </div>
-                </div>
-            </md-toolbar>
-            <md-list>
-                <md-list-item class="md-3-line"
-                              ng-repeat="address in vm.user.addresses track by address.label"
-                              ng-click="vm.showAddressDetailDialog($event, address)"
-                              aria-label="address {{ ::address.label }}">
-                    <div class="md-list-item-text">
-                        <h3 class="text_align_center">
-                            <span ng-bind="address.street" class="text-basic"></span>
-                            <span ng-bind="address.nr" class="text-basic"></span>
-                        </h3>
-                        <h4>
-                            <span ng-bind="address.postalcode" class="text-basic"></span>
-                            <span ng-bind="address.city" class="text-basic"></span>
-                        </h4>
-                        <p ng-bind="address.label" class="profile-field-desc"></p>
-                    </div>
-                </md-list-item>
-            </md-list>
-            <md-toolbar>
-                <div class="md-toolbar-tools" layout-align="space-between center">
-                    <span translate='user.views.profile.bankaccounts' class="profile-field-title">Bank accounts</span>
-                    <div ng-click="vm.showBankAccountDialog($event)"
-                         class="profile-add-btn">
-                        + <span translate='add'>Add</span>
-                    </div>
-                </div>
-            </md-toolbar>
-            <md-list>
-                <md-list-item class="md-3-line"
-                              ng-repeat="bank in vm.user.bankaccounts track by bank.label"
-                              ng-click="vm.showBankAccountDialog($event, bank)">
-                    <div class="md-list-item-text">
-                        <h4 ng-hide="bank.iban === ''"><span translate='user.views.bankaccountdialog.iban' class="text-basic">IBAN:</span>
-                            <span ng-bind="bank.iban"></span>
-                        </h4>
-                        <h4 ng-hide="bank.bic === ''"><span translate='user.views.bankaccountdialog.bic' class="text-basic">BIC:</span>
-                            <span ng-bind="bank.bic"></span>
-                        </h4>
-                        <h4 ng-bind="bank.country" class="text-basic"></h4>
-                        <p ng-bind="bank.label" class="profile-field-desc"></p>
-                    </div>
-                </md-list-item>
-            </md-list>
-            <md-toolbar>
-                <div class="md-toolbar-tools" layout-align="space-between center">
-                    <span translate='user.views.profile.digitalwallet' class="profile-field-title">Digital wallet</span>
-                    <div ng-click="vm.showDigitalWalletAddressDetail($event)"
-                         class="profile-add-btn">
-                        + <span translate='add'>Add</span>
-                    </div>
-                </div>
-            </md-toolbar>
-            <md-list>
-                <md-list-item class="md-3-line"
-                              ng-repeat="address in vm.user.digitalwallet track by address.label"
-                              ng-click="vm.showDigitalWalletAddressDetail($event, address)"
-                              aria-label="Digital wallet address {{ address.label }}">
-                    <div class="md-list-item-text">
-                        <h3 class="text_align_center" ng-bind="address.address"></h3>
-                        <h4>
-                              <span ng-if='!address.noexpiration' translate='user.views.profile.expiringwallet'
-                                    translate-value-expirydate="{{address.expire | date:'dd/MM/yyyy'}}"
-                                    translate-value-symbol="{{address.currencysymbol}}" class="text-basic">
-                                  Expires <span ng-bind="address.expire | date:'dd/MM/yyyy'" ng-if="!address.noexpiration"></span>
-                                  , symbol <span ng-bind="address.currencysymbol"></span>
-                              </span>
-                            <span ng-if='address.noexpiration' translate='user.views.profile.noneexpiringwallet'
-                                  translate-values='{symbol: address.currencysymbol}'class="text-basic">
-                                  Expires never, symbol <span ng-bind="address.currencysymbol"></span>
-                              </span>
-                        </h4>
-                        <p ng-bind="address.label" class="profile-field-desc"></p>
-                    </div>
-                </md-list-item>
             </md-list>
             <md-toolbar>
                 <div class="md-toolbar-tools" layout-align="space-between center">
