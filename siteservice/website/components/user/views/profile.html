@@ -96,7 +96,7 @@
                                   aria-label="Phone {{ phone.label }} - {{ phone.phonenumber }}">
                         <div class="md-list-item-text">
                             <h4 ng-bind="phone.phonenumber" class="text-basic"></h4>
-                            <p ng-bind="phone.label" class="profile-field-desc"></p>
+                            <p class="profile-field-desc">{{ phone.label | translate }}</p>
                         </div>
                     </md-list-item>
                     <p ng-if="phone.verified" class="md-body-1 verified">

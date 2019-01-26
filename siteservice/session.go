@@ -66,7 +66,7 @@ func (service *Service) SetLoggedInUser(w http.ResponseWriter, request *http.Req
 	// base64 encode the username. Use standard encoding to enable decoding by native javascript
 	// functions
 	cookie := &http.Cookie{
-		Name:  "itsyou.online.user",
+		Name:  "decs3o.auth.user",
 		Path:  "/",
 		Value: base64.StdEncoding.EncodeToString([]byte(username)),
 	}

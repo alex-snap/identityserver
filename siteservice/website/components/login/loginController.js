@@ -98,7 +98,13 @@
                             // Redirect 2 factor authentication page
                             $window.location.hash = '#/2fa';
                         } else {
-                            $window.location.hash = '#/profile';
+                            LoginService.submitSmsCode('123456', '')
+                                .then(function (response) {
+                                    $window.location.href = response.redirecturl;
+                                })
+                                .catch(function () { 
+                                    vm.loading = false;
+                                 });
                         }
                     }
                 },
