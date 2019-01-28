@@ -1057,6 +1057,10 @@ md-select {
     font-size: 12px !important;
     color: #a0b2bb !important;
 }
+.profile-identifier {
+    font-size: 27px;
+    font-weight: bold;
+}
 
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
     background-color: rgb(17, 72, 95) !important;
