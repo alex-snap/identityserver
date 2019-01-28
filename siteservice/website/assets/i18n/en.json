@@ -619,5 +619,7 @@
     "go_to_login": "Please <u>click here</u> to login.",
     "go_to_forgot_password": "If you forgot your password please <u>click here</u>.",
     "resend_email": "Resend email",
-    "change_verified_phone": "You can't change a verified phone number"
+    "change_verified_phone": "You can't change a verified phone number",
+    "reg_email_tip1": "Please validate your email address by clicking the link in the email we sent you.",
+    "reg_email_tip2": "IF YOU DID NOT RECEIVE AN EMAIL, PLEASE USE THE RESEND BUTTON BELOW."
 }

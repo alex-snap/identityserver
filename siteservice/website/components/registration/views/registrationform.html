@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                             <div class="form-line">
-                                <telinput phonenumber="vm.sms" error="vm.phone.validationerrors"></telinput>
+                                <telinput phonenumber="vm.sms" phoneWidth="30" error="vm.phone.validationerrors"></telinput>
                             </div>
                             <div layout="column"
                                  layout-gt-xs="row"
@@ -324,9 +324,9 @@
                                     <div layout="row">
                                         <div flex="70">
                                             <div ng-if="!vm.emailConfirmed">
-                                                Please validate your email address by clicking the link in the email we sent you.
+                                                <div translate="reg_email_tip1">Please validate your email address by clicking the link in the email we sent you.</div>
                                                 <br><br>
-                                                IF YOU DID NOT RECEIVE AN EMAIL, PLEASE USE THE RESEND BUTTON BELOW.
+                                                <div translate="reg_email_tip2">IF YOU DID NOT RECEIVE AN EMAIL, PLEASE USE THE RESEND BUTTON BELOW.</div>
                                                 <br><br><br><br>
                                             </div>
                                             <button type="submit"

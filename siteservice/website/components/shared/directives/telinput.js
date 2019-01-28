@@ -7,6 +7,7 @@
                 restrict: 'E',
                 replace: true,
                 scope: {
+                  width: '@phoneWidth',
                   number: '=phonenumber',
                   validationerrors: '=?error'
                 },
@@ -18,6 +19,8 @@
                         "dial_code": "+7",
                         "code": "RU"
                     };
+
+                    scope.width = scope.width || '30';
                     
                     scope.sms = "";
                     scope.prefCountry = "";

@@ -9,7 +9,7 @@
                for="sms"
                translate="phone_number"
                class="text-basic form-label">Country</label>
-        <div flex-gt-xs="30" layout="row">
+        <div flex-gt-xs="{{width}}" layout="row">
             <md-select ng-model="country" 
                         md-selected-text="country.dial_code"
                         ng-model-options="{trackBy: '$value.code'}"

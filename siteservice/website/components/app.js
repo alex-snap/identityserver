@@ -159,7 +159,7 @@
         return {
             link: function (scope, element) {
                 var listener = function (event, current) {
-                    var pageTitle = 'It\'s You Online';
+                    var pageTitle = 'DECS SSO';
                     var routeData = current && current.params || {};
                     if (routeData.pageTitle) {
                         pageTitle = routeData.pageTitle + ' - ' + pageTitle;
